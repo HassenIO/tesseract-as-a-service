@@ -1,6 +1,7 @@
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 import pytesseract
+import json
 
 
 app = Flask(__name__)
@@ -12,8 +13,8 @@ def run_ocr():
 	file_name = 'tmp/' + secure_filename(f.filename)
 	f.save(file_name)
 
-	text = pytesseract.image_to_string(file_name, timeout=10)
-	return f'text={text}'
+	content = pytesseract.image_to_string(file_name, timeout=10)
+	return json.dumps({"content": content})
 
 
 if __name__ == '__main__':
