@@ -11,4 +11,5 @@ COPY app/ app/
 RUN mkdir tmp/
 
 EXPOSE 5000
-CMD ["python", "./app/server.py"]
+ENTRYPOINT [ "/usr/local/bin/python", "-m", "awslambdaric" ]
+CMD [ "app/server.handler" ]
