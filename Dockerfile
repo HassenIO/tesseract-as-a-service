@@ -10,6 +10,6 @@ RUN pip install -r requirements.txt
 COPY app/ app/
 RUN mkdir tmp/
 
-EXPOSE 5000
+EXPOSE 5055
 ENTRYPOINT [ "/usr/local/bin/python", "-m", "awslambdaric" ]
 CMD [ "app/server.handler" ]
