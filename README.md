@@ -16,14 +16,14 @@ Then run a container exposing the service:
 make run
 ```
 
-This will start a server available through `http://localhost:5000`
+This will start a server available through `http://localhost:5055`
 
 ## Testing
 
 If your locally cloned the repo, you can run a test using our sample image and CURL. Just run the following bash command:
 
 ```sh
-curl -X POST -F file=@data/image.png http://localhost:5000/ocr
+curl -X POST -F file=@data/image.png http://localhost:5055/ocr
 ```
 
 You should see the following JSON output:
