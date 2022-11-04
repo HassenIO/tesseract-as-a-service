@@ -21,3 +21,7 @@ install-dev:
 format:
 	python3 -m black .
 .PHONY: format
+
+check:
+	python3 -m flake8 . && python3 -m black --check .
+.PHONY: check
