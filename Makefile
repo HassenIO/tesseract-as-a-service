@@ -9,3 +9,15 @@ run:
 compile:
 	pip-compile --output-file=requirements.txt requirements.in &> /dev/null
 .PHONY: compile
+
+compile-dev:
+	pip-compile --output-file=requirements-dev.txt requirements-dev.in requirements.in &> /dev/null
+.PHONY: compile-dev
+
+install-dev:
+	pip install -r requirements-dev.txt
+.PHONY: install-dev
+
+format:
+	python3 -m black .
+.PHONY: format

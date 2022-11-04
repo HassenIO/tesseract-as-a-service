@@ -9,24 +9,23 @@ app = Flask(__name__)
 SERVER_PORT = os.getenv("PORT", 5055)
 
 
-@app.route('/ocr', methods=['POST'])
+@app.route("/ocr", methods=["POST"])
 def run_ocr():
-	f = request.files['file']
-	file_name = 'tmp/' + secure_filename(f.filename)
-	f.save(file_name)
+    f = request.files["file"]
+    file_name = "tmp/" + secure_filename(f.filename)
+    f.save(file_name)
 
-	content = pytesseract.image_to_string(file_name, timeout=10)
-	return json.dumps({"content": content})
+    content = pytesseract.image_to_string(file_name, timeout=10)
+    return json.dumps({"content": content})
 
 
 def handler(event, context):
-	print(event)
-	return {
-		"statusCode": 200,
-		"body": json.dumps(event),
-	}
+    print(event)
+    return {
+        "statusCode": 200,
+        "body": json.dumps(event),
+    }
 
 
-if __name__ == '__main__':
-	app.run(host="0.0.0.0", port=SERVER_PORT, debug=True)
-
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=SERVER_PORT, debug=True)
