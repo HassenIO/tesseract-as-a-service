@@ -19,13 +19,5 @@ def run_ocr():
     return json.dumps({"content": content})
 
 
-def handler(event, context):
-    print(event)
-    return {
-        "statusCode": 200,
-        "body": json.dumps(event),
-    }
-
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=SERVER_PORT, debug=True)
