@@ -10,5 +10,8 @@ RUN pip install -r requirements.txt
 COPY app/ app/
 RUN mkdir tmp/
 
-EXPOSE 5055
-ENTRYPOINT [ "/usr/local/bin/python", "./app/server.py" ]
+ENV PORT 8080
+ENV PYTHONUNBUFFERED 1
+
+EXPOSE 8080
+CMD /usr/local/bin/python ./app/server.py

@@ -6,7 +6,7 @@ import os
 
 
 app = Flask(__name__)
-SERVER_PORT = os.getenv("PORT", 5055)
+SERVER_PORT = os.getenv("PORT", 8080)
 
 
 @app.route("/ocr", methods=["POST"])

@@ -19,9 +19,9 @@ check:
 .PHONY: check
 
 build: compile
-	docker build -t tesseract-as-a-service:0.1.1 .
+	docker build -t tesseract-as-a-service:0.1.3 .
 .PHONY: build
 
 run:
-	docker run --rm -p 5055:5055 --name tesseract-test tesseract-as-a-service:0.1.1
+	docker run --rm -p 8080:8080 --name tesseract-test tesseract-as-a-service:0.1.3
 .PHONY: run
